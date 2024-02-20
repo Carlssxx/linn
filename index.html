@@ -4,15 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parabéns, Alinne!</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff66bb, #3399ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            background-color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #cccccc;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Parabéns, Alinne!</h1>
-        <button id="btnPix">Me manda seu PIX no WhatsApp!</button>
-        <button id="btnMisterioso">Isso é misterioso</button>
+        <button id="btnValor">R$ 2</button>
+        <button id="btnMisterioso">Presente</button>
         <div id="mensagem"></div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('btnValor').addEventListener('click', function() {
+            document.getElementById('mensagem').innerText = "Me manda seu PIX no WhatsApp!";
+        });
+
+        document.getElementById('btnMisterioso').addEventListener('click', function() {
+            document.getElementById('mensagem').innerText = "Isso é misterioso.";
+        });
+    </script>
 </body>
 </html>
