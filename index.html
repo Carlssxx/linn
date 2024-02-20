@@ -9,43 +9,41 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #ff66bb, #3399ff);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            overflow: hidden; /* Impede que as estrelas causem rolagem horizontal */
         }
 
-        .container {
-            text-align: center;
+        .estrela {
+            position: absolute;
+            width: 50px; /* Largura da estrela */
+            height: 50px; /* Altura da estrela */
+            background: url('https://img.freepik.com/vetores-gratis/comecar_53876-25533.jpg') no-repeat center center; /* Imagem de estrela */
+            background-size: cover; /* Redimensionar a imagem para cobrir toda a área */
+            animation: moveStars 10s linear infinite; /* Animação para mover as estrelas */
         }
 
-        h1 {
-            color: white;
-        }
-
-        button {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
-            background-color: #ffffff;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #cccccc;
+        @keyframes moveStars {
+            from {transform: translateX(0);}
+            to {transform: translateX(100%);}
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Substituindo o texto pela imagem de estrela -->
-        <img src="estrela.png" alt="Estrela">
+    <!-- Estrelas ao redor da tela -->
+    <div class="estrela" style="top: 0%; left: 0%;"></div>
+    <div class="estrela" style="top: 10%; left: 20%;"></div>
+    <div class="estrela" style="top: 20%; left: 40%;"></div>
+    <div class="estrela" style="top: 30%; left: 60%;"></div>
+    <div class="estrela" style="top: 40%; left: 80%;"></div>
+    <!-- Adicione mais estrelas conforme desejado -->
+
+    <!-- Conteúdo centralizado -->
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 1;">
+        <h1>Parabéns, Alinne! A maior fã de skz que eu conheço!</h1>
         <button id="btnValor">R$ 2</button>
         <button id="btnMisterioso">Presente Misterioso</button>
         <div id="mensagem"></div>
     </div>
+
     <script>
         document.getElementById('btnValor').addEventListener('click', function() {
             document.getElementById('mensagem').innerText = "Me manda seu PIX no WhatsApp!";
