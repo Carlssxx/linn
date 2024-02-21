@@ -11,21 +11,20 @@
             padding: 0;
             overflow: hidden; /* Para ocultar as estrelas que saem da tela */
             position: relative; /* Permitir posicionamento absoluto das estrelas */
+            background: linear-gradient(to right, #ff66bb, #3399ff); /* Cor de fundo */
         }
 
         .estrela {
             position: absolute; /* Posicionamento absoluto */
-            width: 100%; /* Preencher toda a largura da tela */
-            height: 100%; /* Preencher toda a altura da tela */
-            object-fit: cover; /* Preencher o espaço disponível sem distorção */
-            z-index: -1; /* Colocar as estrelas atrás do conteúdo */
-            animation: moverEstrela 20s linear infinite; /* Animação das estrelas */
+            width: 50px; /* Largura da estrela */
+            height: auto; /* Altura automaticamente ajustada */
+            animation: moverEstrela 20s linear infinite alternate; /* Animação das estrelas */
         }
 
         /* Animação das estrelas */
         @keyframes moverEstrela {
-            0% { transform: translateX(-100vw) translateY(-100vh); }
-            100% { transform: translateX(100vw) translateY(100vh); }
+            0% { transform: translate(-100%, -100%); }
+            100% { transform: translate(100vw, 100vh); }
         }
 
         .container {
@@ -33,6 +32,7 @@
             position: relative; /* Para permitir o posicionamento absoluto do conteúdo */
             z-index: 1; /* Garantir que o conteúdo fique acima das estrelas */
             color: white; /* Cor do texto */
+            padding: 20px; /* Espaçamento interno */
         }
 
         h1 {
@@ -54,8 +54,12 @@
     </style>
 </head>
 <body>
-    <!-- Imagem de estrela com fundo azul e rosa -->
+    <!-- Imagens de estrelas pequenas -->
     <img class="estrela" src="https://img.freepik.com/vetores-gratis/comecar_53876-25533.jpg" alt="Estrela">
+    <img class="estrela" src="https://img.freepik.com/vetores-gratis/comecar_53876-25533.jpg" alt="Estrela" style="top: 20%; left: 20%;">
+    <img class="estrela" src="https://img.freepik.com/vetores-gratis/comecar_53876-25533.jpg" alt="Estrela" style="top: 50%; left: 70%;">
+    <img class="estrela" src="https://img.freepik.com/vetores-gratis/comecar_53876-25533.jpg" alt="Estrela" style="top: 80%; left: 40%;">
+
     <div class="container">
         <h1>Parabéns, Alinne! A maior fã de skz que eu conheço!</h1>
         <button id="btnValor">R$ 2</button>
