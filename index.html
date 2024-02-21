@@ -9,18 +9,30 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #ff66bb, #3399ff);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             overflow: hidden; /* Para ocultar as estrelas que saem da tela */
+            position: relative; /* Permitir posicionamento absoluto das estrelas */
+        }
+
+        .estrela {
+            position: absolute; /* Posicionamento absoluto */
+            width: 100%; /* Preencher toda a largura da tela */
+            height: 100%; /* Preencher toda a altura da tela */
+            object-fit: cover; /* Preencher o espaço disponível sem distorção */
+            z-index: -1; /* Colocar as estrelas atrás do conteúdo */
+            animation: moverEstrela 20s linear infinite; /* Animação das estrelas */
+        }
+
+        /* Animação das estrelas */
+        @keyframes moverEstrela {
+            0% { transform: translateX(-100vw) translateY(-100vh); }
+            100% { transform: translateX(100vw) translateY(100vh); }
         }
 
         .container {
             text-align: center;
-            position: relative; /* Para permitir o posicionamento absoluto da imagem */
+            position: relative; /* Para permitir o posicionamento absoluto do conteúdo */
             z-index: 1; /* Garantir que o conteúdo fique acima das estrelas */
+            color: white; /* Cor do texto */
         }
 
         h1 {
@@ -38,22 +50,6 @@
 
         button:hover {
             background-color: #cccccc;
-        }
-
-        /* Estilo para a imagem de estrela */
-        .estrela {
-            position: absolute; /* Posicionamento absoluto */
-            width: 100%; /* Para ocupar toda a largura do container */
-            height: 100%; /* Para ocupar toda a altura do container */
-            object-fit: cover; /* Para preencher todo o espaço disponível */
-            z-index: -1; /* Coloca a imagem atrás do conteúdo */
-            animation: moverEstrela 20s linear infinite; /* Animação das estrelas */
-        }
-
-        /* Animação das estrelas */
-        @keyframes moverEstrela {
-            0% { transform: translateX(-100vw) translateY(-100vh); }
-            100% { transform: translateX(100vw) translateY(100vh); }
         }
     </style>
 </head>
