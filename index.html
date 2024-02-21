@@ -75,7 +75,7 @@
     <img class="estrela" src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Estrela" style="bottom: 5%; right: 5%;">
 
     <div class="container">
-        <h1>Parabéns, Alinne! A maior fã de skz que eu conheço!</h1>
+        <h1 id="mensagem-titulo">Parabéns, Alinne! A maior fã de skz que eu conheço!</h1>
         <button id="btnValor">R$ 2</button>
         <button id="btnMisterioso">Presente Misterioso</button>
         <div id="mensagem"></div>
@@ -83,10 +83,12 @@
     <script>
         document.getElementById('btnValor').addEventListener('click', function() {
             document.getElementById('mensagem').innerText = "Me manda seu PIX no WhatsApp!";
+            document.getElementById('mensagem-titulo').innerText = "Parabéns, Alinne!";
         });
 
         document.getElementById('btnMisterioso').addEventListener('click', function() {
             document.getElementById('mensagem').innerText = "Isso é misterioso.";
+            document.getElementById('mensagem-titulo').innerText = "Parabéns, Alinne!";
         });
     </script>
 </body>
