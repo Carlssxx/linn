@@ -14,11 +14,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden; /* Para ocultar as estrelas que saem da tela */
         }
 
         .container {
             text-align: center;
             position: relative; /* Para permitir o posicionamento absoluto da imagem */
+            z-index: 1; /* Garantir que o conteúdo fique acima das estrelas */
         }
 
         h1 {
@@ -45,13 +47,20 @@
             height: 100%; /* Para ocupar toda a altura do container */
             object-fit: cover; /* Para preencher todo o espaço disponível */
             z-index: -1; /* Coloca a imagem atrás do conteúdo */
+            animation: moverEstrela 20s linear infinite; /* Animação das estrelas */
+        }
+
+        /* Animação das estrelas */
+        @keyframes moverEstrela {
+            0% { transform: translateX(-100vw) translateY(-100vh); }
+            100% { transform: translateX(100vw) translateY(100vh); }
         }
     </style>
 </head>
 <body>
+    <!-- Imagem de estrela com fundo azul e rosa -->
+    <img class="estrela" src="https://img.freepik.com/vetores-gratis/comecar_53876-25533.jpg" alt="Estrela">
     <div class="container">
-        <!-- Imagem de estrela com fundo azul e rosa -->
-        <img class="estrela" src="https://img.freepik.com/vetores-gratis/comecar_53876-25533.jpg" alt="Estrela">
         <h1>Parabéns, Alinne! A maior fã de skz que eu conheço!</h1>
         <button id="btnValor">R$ 2</button>
         <button id="btnMisterioso">Presente Misterioso</button>
