@@ -20,7 +20,7 @@
 
         .estrela {
             position: absolute; /* Posicionamento absoluto */
-            width: 20px; /* Largura da estrela */
+            width: 30px; /* Largura da estrela */
             height: auto; /* Altura automaticamente ajustada */
             animation: moverEstrela 20s linear infinite alternate; /* Animação das estrelas */
         }
@@ -81,4 +81,13 @@
         <div id="mensagem"></div>
     </div>
     <script>
-        document.getE
+        document.getElementById('btnValor').addEventListener('click', function() {
+            document.getElementById('mensagem').innerText = "Me manda seu PIX no WhatsApp!";
+        });
+
+        document.getElementById('btnMisterioso').addEventListener('click', function() {
+            document.getElementById('mensagem').innerText = "Isso é misterioso.";
+        });
+    </script>
+</body>
+</html>
