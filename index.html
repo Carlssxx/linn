@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Coração</title>
+    <title>Meu Coração no Espaço</title>
     <style>
         body {
-            background: linear-gradient(45deg, pink, lightblue);
+            background: radial-gradient(circle, pink, lightblue);
             height: 100vh;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
+            overflow: hidden;
         }
 
         .stars {
@@ -35,8 +36,9 @@
         }
 
         .flower {
-            font-size: 40px;
-            margin-bottom: 20px;
+            font-size: 120px;
+            margin-bottom: 40px;
+            text-align: center;
         }
 
         @keyframes twinkling {
@@ -66,7 +68,7 @@
 
     <script>
         function createStars() {
-            const numberOfStars = 100;
+            const numberOfStars = 200;
             const starsContainer = document.querySelector('.stars');
 
             for (let i = 0; i < numberOfStars; i++) {
