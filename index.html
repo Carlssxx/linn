@@ -66,14 +66,16 @@
         }
 
         .highlight {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             background-color: transparent;
             padding: 10px;
             border-radius: 15px;
             border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .heart {
+            font-size: 60px;
+            position: relative;
+            z-index: 1;
         }
 
         @keyframes twinkling {
@@ -100,7 +102,7 @@
         <div class="highlight">
             <div class="text-large">R+C</div>
         </div>
-        <div class="text-medium"></div>
+        <div class="heart">❤️</div>
         <div class="highlight">
             <div class="text-small">Alinhamento Milenar</div>
         </div>
