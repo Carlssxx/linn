@@ -3,93 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parabéns, Alinne!</title>
+    <title>Meu Coração</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, pink, lightblue);
+            height: 100vh;
             margin: 0;
-            padding: 0;
-            overflow: hidden; /* Para ocultar as estrelas que saem da tela */
-            position: relative; /* Permitir posicionamento absoluto das estrelas */
-            background: linear-gradient(to right, #ff66bb, #3399ff); /* Cor de fundo */
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            position: relative;
         }
 
-        .estrela {
-            position: absolute; /* Posicionamento absoluto */
-            width: 30px; /* Largura da estrela */
-            height: auto; /* Altura automaticamente ajustada */
-            animation: moverEstrela 20s linear infinite alternate; /* Animação das estrelas */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
 
-        /* Animação das estrelas */
-        @keyframes moverEstrela {
-            0% { transform: translate(-100%, -100%); }
-            100% { transform: translate(100vw, 100vh); }
+        .star {
+            position: absolute;
+            background: white;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            animation: twinkling 3s infinite;
+            opacity: 0;
         }
 
-        .container {
-            text-align: center;
-            color: white; /* Cor do texto */
-            padding: 20px; /* Espaçamento interno */
-            background: rgba(255, 255, 255, 0.5); /* Fundo da caixa de conteúdo */
-            border-radius: 10px; /* Cantos arredondados */
-            backdrop-filter: blur(5px); /* Efeito de desfoque */
+        .flower {
+            font-size: 40px;
+            margin-bottom: 20px;
         }
 
-        h1 {
-            margin-top: 0; /* Remover margem superior padrão */
-        }
-
-        button {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
-            background-color: #ffffff;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #cccccc;
+        @keyframes twinkling {
+            0% {
+                opacity: 0;
+                transform: translateY(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Imagens de estrelas pequenas -->
-    <img class="estrela" src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Estrela" style="top: 20%; left: 20%;">
-    <img class="estrela" src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Estrela" style="top: 50%; left: 50%;">
-    <img class="estrela" src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Estrela" style="top: 80%; left: 80%;">
-    <img class="estrela" src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Estrela" style="top: 10%; left: 70%;">
-    <img class="estrela" src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Estrela" style="top: 70%; left: 30%;">
-
-    <!-- Estrelas em volta da tela -->
-    <img class="estrela" src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Estrela" style="top: 5%; left: 5%;">
-    <img class="estrela" src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Estrela" style="top: 5%; left: 50%;">
-    <img class="estrela" src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Estrela" style="top: 5%; right: 5%;">
-    <img class="estrela" src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Estrela" style="bottom: 5%; left: 5%;">
-    <img class="estrela" src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Estrela" style="bottom: 5%; left: 50%;">
-    <img class="estrela" src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Estrela" style="bottom: 5%; right: 5%;">
-
-    <div class="container">
-        <h1 id="mensagem-titulo">Parabéns, Alinne! A maior fã de skz e de twice que eu conheço!</h1>
-        <button id="btnValor">R$ 2</button>
-        <button id="btnMisterioso">Presente Misterioso</button>
-        <div id="mensagem"></div>
+    <div class="stars">
+        <!-- Stars will be dynamically generated here -->
     </div>
-    <script>
-        document.getElementById('btnValor').addEventListener('click', function() {
-            document.getElementById('mensagem').innerText = "Me manda seu PIX no WhatsApp!";
-            document.getElementById('mensagem-titulo').innerText = "Parabéns, Alinne!";
-        });
+    <div class="content">
+        <div class="flower">🌸</div>
+        <div>Te amo, Ray ❤️</div>
+    </div>
 
-        document.getElementById('btnMisterioso').addEventListener('click', function() {
-            document.getElementById('mensagem').innerText = "Isso é misterioso.";
-            document.getElementById('mensagem-titulo').innerText = "Parabéns, Alinne!";
-        });
+    <script>
+        function createStars() {
+            const numberOfStars = 100;
+            const starsContainer = document.querySelector('.stars');
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        createStars();
     </script>
 </body>
 </html>
